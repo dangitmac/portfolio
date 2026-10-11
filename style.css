@@ -1,6 +1,7 @@
 html {
     --color-accent: oklch(65% 50% 0);
     accent-color: var(--color-accent);
+    color-scheme: light dark;
 }
 
 body {
@@ -15,10 +16,18 @@ img {
     height: auto;
 }
 
+.dog-photo {
+    width: 450px;
+    max-width: 100%;
+    height: auto;
+}
+
 nav {
+    --border-color: oklch(50% 10% 200 / 40%);
+
     display: flex;
     margin-bottom: 1em;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -30,14 +39,18 @@ nav a {
 }
 
 nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
+    border-bottom: 0.4em solid var(--border-color);
     padding-bottom: 0.1em;
 }
 
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
-    background-color: oklch(from var(--color-accent) 95% 5% h);
+    background-color: color-mix(
+        in oklch,
+        var(--color-accent),
+        canvas 85%
+    );
 }
 
 input,
@@ -97,7 +110,7 @@ section {
 }
 
 section h2 {
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid oklch(50% 10% 200 / 40%);
     padding-bottom: 0.25em;
 }
 
@@ -105,8 +118,13 @@ section ul {
     padding-left: 1.5em;
 }
 
-.dog-photo {
-    width: 350px;
-    max-width: 100%;
-    height: auto;
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+}
+
+select {
+    font: inherit;
 }
