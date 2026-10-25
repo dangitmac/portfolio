@@ -7,43 +7,43 @@
     },
     {
         "title": "COGS 186 A1",
-        "year": "2026",
+        "year": "2025",
         "image": "images/cogs186-1.png",
         "description": "Uses a genetic algorithm and perceptron to learn a separating hyperplane for binary classification on a breast cancer dataset and compare their performance."
     },
     {
         "title": "COGS 186 A2",
-        "year": "2026",
+        "year": "2025",
         "image": "images/cogs186-2.png",
         "description": "Uses a Genetic Algorithm to find a solution to the traveling salesman problem (TSP)."
     },
     {
         "title": "COGS 186 A3",
-        "year": "2026",
+        "year": "2025",
         "image": "images/cogs186-3.png",
         "description": "Uses a Particle Swarm algorithm to find the global minimum of a non-convex function."
     },
     {
         "title": "DSC 96 A1",
-        "year": "2026",
+        "year": "2024",
         "image": "images/dsc96-1.png",
         "description": "Is there a correlation between officer experience and stop outcomes (e.g., searches, citations, arrests)?"
     },
     {
         "title": "DSC 96 A5",
-        "year": "2026",
+        "year": "2024",
         "image": "images/dsc96-5.jpeg",
         "description": "how do different image techniques impact the overall quality of an image."
     },
     {
         "title": "Playful Learning",
-        "year": "2026",
+        "year": "2025",
         "image": "images/playful-learning.png",
         "description": "Pick a tutor, ask a question with your voice, and watch friendly explanations and concept maps blossom."
     },
     {
         "title": "Wordle",
-        "year": "2026",
+        "year": "2023",
         "image": "images/wordle.png",
         "description": "Wordle game replica built with HTML, CSS, and JavaScript. Users can guess a five-letter word in six tries."
     },
@@ -55,19 +55,19 @@
     },
     {
         "title": "COGS 100 Project",
-        "year": "2026",
+        "year": "2025",
         "image": "images/cogs100.png",
         "description": "The Cognitive Science behind playing Valorant"
     },
     {
         "title": "COGS 9 Project",
-        "year": "2026",
+        "year": "2024",
         "image": "images/cogs9.png",
         "description": "Is there a correlation between the sales of trending video game genres and the number of games produced in those genres in the same or subsequent year?"
     },
     {
         "title": "COGS 180 Final Project",
-        "year": "2026",
+        "year": "2025",
         "image": "images/cogs180-1.png",
         "description": "Do people predict stronger regret than they later report experiencing when imagining unfavorable outcomes?"
     }
