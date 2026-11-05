@@ -56,11 +56,6 @@ function processCommits(data) {
 }
 
 function renderCommitInfo(data, commits) {
-    const dl = d3.select('#stats')
-        .html('')
-        .append('dl')
-        .attr('class', 'stats');
-
     const numberOfFiles = d3.group(data, d => d.file).size;
     const maxDepth = d3.max(data, d => d.depth);
     const averageLineLength = d3.mean(data, d => d.length);
@@ -76,35 +71,49 @@ function renderCommitInfo(data, commits) {
         d => d[1]
     );
 
-    dl.append('dt')
-        .html('Total <abbr title="Lines of code">LOC</abbr>');
-    dl.append('dd')
-        .text(data.length);
+    const stats = [
+        {
+            label: 'Total LOC',
+            value: data.length
+        },
+        {
+            label: 'Total commits',
+            value: commits.length
+        },
+        {
+            label: 'Number of files',
+            value: numberOfFiles
+        },
+        {
+            label: 'Max depth',
+            value: maxDepth
+        },
+        {
+            label: 'Average line length',
+            value: averageLineLength.toFixed(1)
+        },
+        {
+            label: 'Longest file',
+            value: `${longestFile[0]} (${longestFile[1]} lines)`
+        }
+    ];
 
-    dl.append('dt')
-        .text('Total commits');
-    dl.append('dd')
-        .text(commits.length);
+    const container = d3
+        .select('#stats')
+        .html('')
+        .attr('class', 'stats-grid');
 
-    dl.append('dt')
-        .text('Number of files');
-    dl.append('dd')
-        .text(numberOfFiles);
-
-    dl.append('dt')
-        .text('Max depth');
-    dl.append('dd')
-        .text(maxDepth);
-
-    dl.append('dt')
-        .text('Average line length');
-    dl.append('dd')
-        .text(averageLineLength.toFixed(1));
-
-    dl.append('dt')
-        .text('Longest file');
-    dl.append('dd')
-        .text(`${longestFile[0]} (${longestFile[1]} lines)`);
+    container
+        .selectAll('.stat-card')
+        .data(stats)
+        .join('div')
+        .attr('class', 'stat-card')
+        .html(
+            d => `
+                <div class="stat-label">${d.label}</div>
+                <div class="stat-value">${d.value}</div>
+            `
+        );
 }
 
 function renderTooltipContent(commit) {
@@ -210,14 +219,20 @@ function renderLanguageBreakdown(selection) {
 
     for (const [language, count] of breakdown) {
         const proportion = count / lines.length;
+        const formatted = d3.format('.1%')(proportion);
 
-        const formatted =
-            d3.format('.1~%')(proportion);
+        const item = document.createElement('div');
+        item.className = 'language-item';
 
-        container.innerHTML += `
-            <dt>${language}</dt>
-            <dd>${count} lines (${formatted})</dd>
+        item.innerHTML = `
+            <dt>${language.toUpperCase()}</dt>
+            <dd>
+                ${count} lines
+                <span>(${formatted})</span>
+            </dd>
         `;
+
+        container.appendChild(item);
     }
 }
 
@@ -311,7 +326,10 @@ function renderScatterPlot(data, commits) {
         usableArea.top
     ]);
 
-    const xAxis = d3.axisBottom(xScale);
+    const xAxis = d3
+        .axisBottom(xScale)
+        .ticks(8)
+        .tickFormat(d3.timeFormat('%b %d'));
 
     const yAxis = d3
         .axisLeft(yScale)

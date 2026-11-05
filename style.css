@@ -222,20 +222,39 @@ select {
     cursor: pointer;
 }
 
-.stats {
+.stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
-    gap: 1em;
-    margin-block: 2em;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(180px, 1fr)
+    );
+    gap: 1.5em;
+    margin-block: 2em 3em;
 }
 
-.stats dt {
-    font-weight: bold;
+.stat-card {
+    padding: 1.25em;
+    border: 1px solid #ddd;
+    border-radius: 0.75em;
+    background: color-mix(
+        in oklch,
+        canvas 96%,
+        canvastext 4%
+    );
 }
 
-.stats dd {
-    margin: 0;
-    font-size: 1.5em;
+.stat-label {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 0.4em;
+}
+
+.stat-value {
+    font-size: 1.7em;
+    font-weight: 500;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
 }
 
 .gridlines line {
@@ -331,4 +350,30 @@ circle:hover {
 
 circle.selected {
     fill: #ff6b6b;
+}
+
+.language-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    gap: 2em;
+    margin-block: 1.5em 2em;
+}
+
+.language-item {
+    text-align: center;
+}
+
+.language-item dt {
+    font-weight: bold;
+    margin-bottom: 0.4em;
+}
+
+.language-item dd {
+    margin: 0;
+    font-size: 1.25em;
+    line-height: 1.4;
+}
+
+.language-item dd span {
+    display: block;
 }
