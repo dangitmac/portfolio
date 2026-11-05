@@ -10,11 +10,12 @@ const BASE_PATH =
         : "/portfolio/";
 
 let pages = [
-    { url: "", title: "Home" },
-    { url: "projects/", title: "Projects" },
-    { url: "contact/", title: "Contact" },
-    { url: "resume/", title: "Resume" },
-    { url: "https://github.com/dangitmac", title: "GitHub" }
+    { url: '', title: 'Home' },
+    { url: 'projects/', title: 'Projects' },
+    { url: 'contact/', title: 'Contact' },
+    { url: 'resume/', title: 'Resume' },
+    { url: 'meta/', title: 'Meta' },
+    { url: 'https://github.com/dangitmac', title: 'GitHub' }
 ];
 
 let nav = document.createElement("nav");

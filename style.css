@@ -221,3 +221,114 @@ select {
 #projects-pie-plot path {
     cursor: pointer;
 }
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    gap: 1em;
+    margin-block: 2em;
+}
+
+.stats dt {
+    font-weight: bold;
+}
+
+.stats dd {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.gridlines line {
+    stroke: #ddd;
+    stroke-opacity: 0.7;
+}
+
+.gridlines path {
+    display: none;
+}
+
+dl.info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25em 1em;
+}
+
+dl.info dt {
+    color: #666;
+    font-weight: normal;
+}
+
+dl.info dd {
+    margin: 0;
+    font-weight: bold;
+}
+
+.tooltip {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+}
+
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+circle:hover {
+    transform: scale(1.5);
+}
+
+.tooltip {
+    position: fixed;
+    z-index: 1000;
+
+    background-color: color-mix(in oklch, canvas 90%, transparent);
+    padding: 0.75em 1em;
+
+    border: 1px solid oklch(50% 10% 200 / 30%);
+    border-radius: 0.5em;
+
+    box-shadow: 0 0.25em 0.75em rgb(0 0 0 / 15%);
+    backdrop-filter: blur(8px);
+
+    pointer-events: none;
+}
+
+dl.info {
+    transition-duration: 200ms;
+    transition-property: opacity, visibility;
+}
+
+dl.info[hidden] {
+    opacity: 0;
+    visibility: hidden;
+}
+
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+circle:hover {
+    transform: scale(1.5);
+}
+
+.selection {
+    fill-opacity: 0.1;
+    stroke: black;
+    stroke-opacity: 0.7;
+    stroke-dasharray: 5 3;
+    animation: marching-ants 2s linear infinite;
+}
+
+@keyframes marching-ants {
+    to {
+        stroke-dashoffset: -16;
+    }
+}
+
+circle.selected {
+    fill: #ff6b6b;
+}
