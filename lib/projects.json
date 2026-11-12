@@ -1,5 +1,12 @@
 [
     {
+        "title": "Bikewatching",
+        "year": "2026",
+        "image": "images/bikewatching.jpg",
+        "description": "Explore how Bluebikes traffic changes throughout the day across Boston and Cambridge. Station size shows trip volume, and color shows whether more riders arrive or depart.",
+        "url": "https://dangitmac.github.io/bikewatching/"
+    },
+    {
         "title": "DSC 80 Final Project",
         "year": "2026",
         "image": "images/reply-repair-reputation.png",
