@@ -132,6 +132,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
             </div>
         `;
 
+        if (project.url) {
+            const link = document.createElement('a');
+            link.href = project.url;
+            link.textContent = project.title;
+            article.querySelector(headingLevel).replaceChildren(link);
+        }
+
         containerElement.appendChild(article);
     }
 }
