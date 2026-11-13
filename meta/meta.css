@@ -16,11 +16,11 @@
     background: Canvas;
 }
 #scatter-plot h2 { margin: 0 0 .75rem; font-size: clamp(1rem, 2.8vw, 1.5rem); }
-.timeline-controls { display: grid; grid-template-columns: 1fr auto; gap: .25rem .65rem; font-size: .85rem; }
+.timeline-controls { display: grid; grid-template-columns: 1fr auto; gap: .25rem .65rem; margin-top: .55rem; font-size: .85rem; }
 .timeline-controls input { grid-column: 1 / -1; width: 100%; accent-color: #24788b; }
 #commit-cutoff { text-align: right; font-variant-numeric: tabular-nums; }
 #visible-commits, .chart-hint, #selection-count { margin: .3rem 0; font-size: .79rem; }
-#chart svg { display: block; width: 100%; height: auto; max-height: 56svh; }
+#chart svg { display: block; width: 100%; height: auto; max-height: clamp(9rem, calc(100svh - 15rem), 52svh); }
 #chart svg text { font-size: 20px; }
 #scatter-story .step {
     min-height: 54svh;
@@ -44,12 +44,16 @@
 .file-row small { display: block; }
 .file-row dd { margin: 0; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 3px; padding-top: .2rem; }
 .loc, .file-key { display: block; width: 7px; height: 7px; border-radius: 50%; background: var(--line-color); }
+@media (max-height: 650px) {
+    #scatter-plot { padding: .65rem; }
+    #scatter-plot h2 { margin-bottom: .35rem; }
+}
 @media (max-width: 680px) {
     #scrolly-1 { grid-template-columns: minmax(0, 1fr); gap: 0; }
     #scatter-plot { grid-area: 1 / 1; z-index: 1; top: 0; }
     #scatter-story { grid-area: 1 / 1; padding-top: min(66svh, 410px); }
     #scatter-story .step { min-height: 65svh; }
-    #chart svg { max-height: 35svh; }
+    #chart svg { max-height: min(35svh, calc(100svh - 12rem)); }
 }
 @media (prefers-reduced-motion: reduce) {
     .meta-page #chart .dots circle { transition: none; }
