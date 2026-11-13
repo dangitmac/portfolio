@@ -5,28 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Meta</title>
+    <title>Meta · Portfolio History</title>
 
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="meta.css">
 
     <script type="module" src="../global.js"></script>
     <script type="module" src="main.js"></script>
 </head>
 
-<body>
+<body class="meta-page">
 
     <h1>Meta</h1>
 
     <p>
-        This page contains visualizations and statistics about the code in my portfolio.
+        Scroll through the commits to see how my portfolio took shape.
     </p>
 
     <div id="stats"></div>
 
-    <h2>Commits by time of day</h2>
-    <div id="chart"></div>
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="language-breakdown"></dl>
+    <section id="scrolly-1" aria-label="Portfolio commit timeline">
+        <div id="scatter-story"></div>
+        <div id="scatter-plot">
+            <h2>Commits by time of day</h2>
+            <div class="timeline-controls">
+                <label for="commit-progress">Show commits through</label>
+                <time id="commit-cutoff"></time>
+                <input id="commit-progress" type="range" min="0" max="100" step="any" value="0">
+            </div>
+            <p id="visible-commits"></p>
+            <div id="chart"></div>
+            <p class="chart-hint">Hover for commit details or drag over dots to compare languages.</p>
+            <p id="selection-count">No commits selected</p>
+            <dl id="language-breakdown" class="language-breakdown"></dl>
+        </div>
+    </section>
+
+    <section class="files-section" aria-labelledby="files-title">
+        <h2 id="files-title">Lines of code by file</h2>
+        <p>Each dot represents one line in the portfolio snapshot. Color shows its language.</p>
+        <ul id="file-legend" aria-label="Code languages"></ul>
+        <dl id="files"></dl>
+    </section>
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
